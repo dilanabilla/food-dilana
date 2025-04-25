@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Review Page</title>
+  <link rel="stylesheet" href="review1.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- for icons -->
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+        <img src="logo1.png" alt="Logo">
+    </div>
+    <div class="nav-links">
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="secondpage.html">Meals</a></li>
+            <li><a href="aboutuspage.html">About Us</a></li>
+            <li><a href="reviewpage.html">Review</a></li>
+            <li><button class="order_now" onclick="location.href='login.html'">Order Now</button></li>
+
+        </ul>
+    </div>
+  </nav>
+  
+  <section class="review-form">
+    <h1>Review</h1>
+    <form id="reviewForm" action="review.php" method="POST">
+      <input type="text" id="food" name="food" placeholder="Food" required>
+      <input type="number" id="rating" name="rating" placeholder="Rating for the food" min="1" max="5" required>
+      <textarea id="feedback" name="feedback" placeholder="Feedback" rows="5" required></textarea>
+      <button type="submit">OK</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a> |
+            <a href="/terms-of-service">Terms of Service</a> |
+            <span>© 2025 All Rights Reserved</span>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const food = document.getElementById('food').value;
+        const rating = document.getElementById('rating').value;
+        const feedback = document.getElementById('feedback').value;
+
+        alert(`Thank you for your review on ${food}!\nRating: ${rating}\nFeedback: ${feedback}`);
+        
+        // Optionally, remove the line above if server-side PHP handles it
+        this.submit(); // Allow actual submission after alert
+    });
+  </script>
+</body>
+</html>
